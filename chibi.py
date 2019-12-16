@@ -136,7 +136,7 @@ def copy(env):
     newenv = {}
     for x in env.keys:
         newenv[x] = env[x]
-    return env
+    return newenv
 
 class FuncApp(Expr):
     __slots__ = ['func', 'param']
@@ -164,7 +164,7 @@ def conv(tree):
     if tree == 'FuncDecl':
         return Assign(str(tree[0]), Lambda(tree[1]), conv(tree[2]))
     if tree == 'FuncApp':
-        return FuncApp(conc(tree[0]), conv(tree[1]))
+        return FuncApp(conv(tree[0]), conv(tree[1]))
     if tree == 'If':
         return If(conv(tree[0]), conv(tree[1]), conv(tree[2]))
     if tree == 'While':
