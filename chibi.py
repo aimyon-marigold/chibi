@@ -132,6 +132,12 @@ class Lambda(Expr):
 f = Lambda('x', Add(Var('x'), 1))
 print(repr(f))
 
+def copy(env):
+    newenv = {}
+    for x in env.keys:
+        newenv[x] = env[x]
+    return env
+
 class FuncApp(Expr):
     __slots__ = ['func', 'param']
     def __init__(self, func: Lambda, param):
@@ -143,6 +149,7 @@ class FuncApp(Expr):
     def eval(self, env):
         v = self.param.eval(env)
         name = self.func.name
+        env = copy(env)
         env[name] = v
         return self.func.body.eval(env)
 
@@ -153,6 +160,8 @@ print(e, '=>', e.eval({}))
 def conv(tree):
     if tree == 'Block':
         return conv(tree[0])
+    if tree == 'FuncDecl':
+        return FuncDecl(str(tree[0]), Lambda(tree[1]), conv(tree[2]))
     if tree == 'If':
         return If(conv(tree[0]), conv(tree[1]), conv(tree[2]))
     if tree == 'While':
