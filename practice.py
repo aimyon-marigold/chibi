@@ -1,15 +1,9 @@
-a = [0 for i in range(101)]
-while True:
-  try:
-    n = int(input())
-    a[n] += 1
-  except EOFError:
-    break
-
-m = 0
-for i in range(1, 101):
-  m = max(m, a[i])
-for i in range(1, 101):
-  if a[i] == m:
-    print(i)
+n=[0]*101
+while 1:
+    try:n[int(input())]+=1
+    except:break
+m_n=max(n)
+for i in range(n.count(m_n)):
+    print(n.index(m_n)+i)
+    n.remove(m_n)
     
