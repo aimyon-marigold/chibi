@@ -1,12 +1,15 @@
-tate =int(input())
-yoko=int(input())
-arr = [i+1 for i in range(tate)]
-for j in range(yoko):
-    rep1,rep2=input().split(",")
-    rep1=int(rep1)-1
-    rep2=int(rep2)-1
-    arr[rep1],arr[rep2] = arr[rep2],arr[rep1]
+a = [0 for i in range(101)]
+while True:
+  try:
+    n = int(input())
+    a[n] += 1
+  except EOFError:
+    break
 
-for k in range(tate):
-    print(arr[k])
+m = 0
+for i in range(1, 101):
+  m = max(m, a[i])
+for i in range(1, 101):
+  if a[i] == m:
+    print(i)
     
