@@ -1,10 +1,7 @@
-for e in iter(input,'0'):
- n=int(e);m,f=[[0]*n for _ in[0]*n],'{:4}'*n
- j=n//2;i=j+1
- m[i][j]=1
- for k in range(2,n*n+1):
-  i,j,t=-~i%n,-~j%n,j
-  if m[i][j]:i,j=-~i%n,t
-  m[i][j]=k
- for r in m:print(f.format(*r))
+import sys
+from math import*
+for e in sys.stdin:
+ a,b,c,d,x,y=map(float,e.split(','))
+ g=2*atan2(d-b,c-a);s,t=sin(g),cos(g);x-=a;y-=b
+ print(f'{t*x+s*y+a:.6f} {s*x-t*y+b:.6f}')
  
