@@ -1,8 +1,12 @@
+import math
 while True:
-  try:
-    s, w, h = input().split(",")
-    if float(w) / float(h) ** 2 >= 25:
-      print(s)
-
-  except EOFError:
+  n = int(input())
+  if n == -1:
     break
+  x, y = 1, 0
+  for _ in range(n - 1):
+    angle = math.atan2(y, x) + math.pi / 2
+    x += math.cos(angle)
+    y += math.sin(angle)
+  print(x, y)
+  
