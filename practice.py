@@ -1,20 +1,13 @@
-import sys
-import os
-import math
-import itertools
+l=["A","B","AB","O"]
+dict={"A":0, "B":0, "AB":0, "O":0}
 
-d = {}
-d['A'] = 0
-d['B'] = 0
-d['AB'] = 0
-d['O'] = 0
+while True:
+    try:
+        n, s = input().split(",")
+    except:
+        break
+    dict[s] += 1
 
-for s in sys.stdin:
-    s = s.strip()
-    type = s.split(',')[-1]
-    d[type] += 1
-
-print(d['A'])
-print(d['B'])
-print(d['AB'])
-print(d['O'])
+for i in l:
+    print(dict[i])
+    
