@@ -1,5 +1,6 @@
 while True:
-  try:
-    print(sum(map(int, input().split())))
-  except EOFError:
+  n = int(input())
+  if n == 0:
     break
+  print(sum([int(input()) for _ in range(n // 4)]))
+  
