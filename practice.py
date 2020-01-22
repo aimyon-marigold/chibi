@@ -1,5 +1,11 @@
-while True:
-	K = int(input())
-	if K == 0: break
-	print(sum(list(map(int, input().split())))//(K-1))
-    
+def main(n):
+    if n == 0:
+        return False
+    ans = 0
+    for _ in range(int(n/4)):
+        ans += int(input())
+    print(ans)
+    return True
+
+while main(int(input())):
+    pass
