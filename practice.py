@@ -1,8 +1,6 @@
-n=int(input())
-while n:
-    a=0
-    for i in range(n//4):
-        a+=int(input())
-    print(a)
-    n=int(input())
-    
+while True:
+  r, c = map(int, input().split())
+  if r == 0:
+    break
+  print(["yes", "no"][c % 2 and r % 2])
+  
