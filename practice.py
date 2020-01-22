@@ -1,11 +1,7 @@
-def main(n):
-    if n == 0:
-        return False
-    ans = 0
-    for _ in range(int(n/4)):
-        ans += int(input())
-    print(ans)
-    return True
-
-while main(int(input())):
-    pass
+while 1:
+    a,b=input().split()
+    if a=='0':break
+    h=0
+    for i,j in zip(a,b):h+=i==j
+    print(h,len(set(a)&set(b))-h)
+    
