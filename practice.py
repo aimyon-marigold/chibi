@@ -1,10 +1,2 @@
-while 1:
-    try:
-        s=input()
-        n=[]
-        for i in s:
-            n.append(int(i))
-        ans=n[0]+n[1]*9+n[2]*6+n[3]*4+n[4]*6+n[5]*6+n[6]*4+n[7]*6+n[8]*9+n[9]
-        print(ans%10)
-    except:break
-    
+import sys
+print("\n".join(map(str, [int(s) for l in sys.stdin for s, w, h in [map(float, l.split(","))] if w/h**2 >= 25])))
