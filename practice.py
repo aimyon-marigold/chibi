@@ -1,16 +1,10 @@
 while 1:
     try:
-        num = list(input())
-    except EOFError:
-        break
-
-    for _ in range(9):
-        nextlist = []
-        for i in range(len(num)-1):
-            tmp = (int(num[i]) + int(num[i+1])) % 10
-            nextlist.append(tmp)
-
-        num = nextlist
-
-    print(num[0])
+        s=input()
+        n=[]
+        for i in s:
+            n.append(int(i))
+        ans=n[0]+n[1]*9+n[2]*6+n[3]*4+n[4]*6+n[5]*6+n[6]*4+n[7]*6+n[8]*9+n[9]
+        print(ans%10)
+    except:break
     
