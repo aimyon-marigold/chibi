@@ -1,2 +1,8 @@
-import sys
-print("\n".join(map(str, [int(s) for l in sys.stdin for s, w, h in [map(float, l.split(","))] if w/h**2 >= 25])))
+while True:
+  try:
+    s, w, h = input().split(",")
+    if float(w) / float(h) ** 2 >= 25:
+      print(s)
+
+  except EOFError:
+    break
