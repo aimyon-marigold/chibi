@@ -1,9 +1,11 @@
-n=int(input())
-s=[i for i in range(1,2*n+1)]
-for _ in range(int(input())):
-    a=int(input())
-    if a:
-        s=s[a:]+s[:a]
-    else: 
-        s=[s[i+n*j]for i in range(n) for j in[0,1]]
-print(*s,sep='\n')
+def f(n,x):
+    for i in range(9):
+        if n[i] != -1 and n[i] != x[i]: return 1
+import itertools
+u=[1,2,3,4,5,6,7,8,9]
+a=0
+n=list(map(int,input().split()))
+for x in itertools.permutations(u):
+    if f(n,x):continue
+    if x[0]+x[2]+x[5]-x[8]+(x[1]+x[4]-x[7])*10+(x[3]-x[6])*100==0:a+=1
+print(a)
