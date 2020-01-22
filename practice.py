@@ -1,11 +1,19 @@
+team = {}
 while True:
-  try:
-    c1, c2, c3 = map(int, input().split())
-    lst = [i for i in range(1,11) if i not in (c1, c2, c3) and i + c1 + c2 <= 20]
-    if len(lst) >= 4:
-      print("YES")
-    else:
-      print("NO")
+	p, s = list(map(int, input().split(',')))
+	if p == 0: break
+	team[p] = s
+tbl = sorted(team.items(), key=lambda x:x[1], reverse=True)
 
-  except EOFError:
-    break
+ans = [0]*101
+ans[tbl[0][0]] = ord = 1
+for i in range(1,len(tbl)):
+	if tbl[i][1] < tbl[i-1][1]: ord += 1
+	ans[tbl[i][0]]= ord
+	
+while True:
+    try:
+        print(ans[int(input())])
+    except EOFError:
+        break
+    
