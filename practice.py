@@ -1,12 +1,10 @@
-while 1:
-    try:s=input()
-    except:break
-    i,a,n=0,'',1
-    for i in s:
-        if n==0:n=int(i)
-        elif i=='@': n=0
-        else:
-            a+=i*n
-            n=1
-    print(a)
-    
+for e in iter(input,'0'):
+ n=int(e);m,f=[[0]*n for _ in[0]*n],'{:4}'*n
+ j=n//2;i=j+1
+ m[i][j]=1
+ for k in range(2,n*n+1):
+  i,j,t=-~i%n,-~j%n,j
+  if m[i][j]:i,j=-~i%n,t
+  m[i][j]=k
+ for r in m:print(f.format(*r))
+ 
