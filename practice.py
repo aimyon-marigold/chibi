@@ -1,12 +1,11 @@
 while True:
-    try:
-        _= int(input())
-    except:
-        break
-    t= 0
-    ans= []
-    for v in sorted(list(map(int, input().split()))):
-        t+= v
-        ans.append(t)
-    print(sum(ans))
+	try:
+		n=int(input())
+	except:
+		exit()
+	a=list(map(int,input().split()))
+	a.sort()
+	for i in range(n-1):
+		a[i+1]+=a[i]
+	print(sum(a))
     
