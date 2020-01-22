@@ -1,19 +1,26 @@
-team = {}
-while True:
-	p, s = list(map(int, input().split(',')))
-	if p == 0: break
-	team[p] = s
-tbl = sorted(team.items(), key=lambda x:x[1], reverse=True)
+import sys, math, os
 
-ans = [0]*101
-ans[tbl[0][0]] = ord = 1
-for i in range(1,len(tbl)):
-	if tbl[i][1] < tbl[i-1][1]: ord += 1
-	ans[tbl[i][0]]= ord
-	
+PYDEV = os.environ.get('PYDEV')
+if PYDEV=="True":
+    sys.stdin = open("sample-input.txt", "rt")
+
+
+points = {}    
+while True:
+    no, p = [int(_) for _ in input().split(',')]
+    if no == p == 0:
+        break
+    if p not in points:
+        points[p] = []
+    points[p].append(no)
+rank = sorted(list(points.keys()), reverse=True)
+
 while True:
     try:
-        print(ans[int(input())])
+        team = int(input())
     except EOFError:
         break
-    
+    for i in range(len(rank)):
+        if team in points[rank[i]]:
+            print(i + 1)
+            break
