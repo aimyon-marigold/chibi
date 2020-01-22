@@ -1,6 +1,8 @@
-while True:
-  n = int(input())
-  if n == 0:
-    break
-  print(sum([int(input()) for _ in range(n // 4)]))
-  
+n=int(input())
+while n:
+    a=0
+    for i in range(n//4):
+        a+=int(input())
+    print(a)
+    n=int(input())
+    
