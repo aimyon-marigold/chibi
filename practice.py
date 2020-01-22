@@ -1,1 +1,5 @@
-print(sum(list(map(int,input().split()))))
+while True:
+  try:
+    print(sum(map(int, input().split())))
+  except EOFError:
+    break
