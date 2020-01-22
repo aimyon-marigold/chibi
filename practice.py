@@ -1,26 +1,16 @@
-import sys, math, os
-
-PYDEV = os.environ.get('PYDEV')
-if PYDEV=="True":
-    sys.stdin = open("sample-input.txt", "rt")
-
-
-points = {}    
-while True:
-    no, p = [int(_) for _ in input().split(',')]
-    if no == p == 0:
-        break
-    if p not in points:
-        points[p] = []
-    points[p].append(no)
-rank = sorted(list(points.keys()), reverse=True)
-
-while True:
+while 1:
     try:
-        team = int(input())
+        num = list(input())
     except EOFError:
         break
-    for i in range(len(rank)):
-        if team in points[rank[i]]:
-            print(i + 1)
-            break
+
+    for _ in range(9):
+        nextlist = []
+        for i in range(len(num)-1):
+            tmp = (int(num[i]) + int(num[i+1])) % 10
+            nextlist.append(tmp)
+
+        num = nextlist
+
+    print(num[0])
+    
